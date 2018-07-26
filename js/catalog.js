@@ -17,6 +17,8 @@ function populateForm() {
     optEl.value = product.name;
     selectElement.appendChild(optEl);
   }
+ 
+  
 
 }
 
