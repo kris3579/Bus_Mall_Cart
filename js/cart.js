@@ -6,8 +6,8 @@ var table = document.getElementById('cart');
 table.addEventListener('click', removeItemFromCart);
 var cart;
 
+var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 function loadCart() {
-  var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
   cart = new Cart(cartItems);
 }
 
@@ -23,10 +23,27 @@ function clearCart() {}
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
 function showCart() {
-
+// console.log('here')
   // TODO: Find the table body
-
+  // document.getElementById('cart')
   // TODO: Iterate over the items in the cart
+  var tblEl = document.getElementById('cart');
+  console.log('cartItems', cartItems);
+  for (var i = 0; i < cartItems.length; i++) {
+    console.log('cartItems', cartItems);
+    var trEl = document.createElement('tr');
+    var tdEl1 = document.createElement('td');
+    var tdEl2 = document.createElement('td');
+    var tdEl3 = document.createElement('td');
+
+    tdEl1.textContent = 'X';
+    tdEl2.textContent = cartItems[i].quantity;
+    tdEl3.textContent = cartItems[i].product;
+    trEl.appendChild(tdEl1);
+    trEl.appendChild(tdEl2);
+    trEl.appendChild(tdEl3);
+    tblEl.appendChild(trEl);
+  }
   // TODO: Create a TR
   // TODO: Create a TD for the delete link, quantity,  and the item
   // TODO: Add the TR to the TBODY and each of the TD's to the TR
